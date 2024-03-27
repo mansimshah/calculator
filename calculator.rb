@@ -1,5 +1,6 @@
 class Calculator
   ERROR_MSG = "negative numbers not allowed"
+  @@negative_numbers = []
 
   def add numbers
     result = []
@@ -16,7 +17,11 @@ class Calculator
     input_values = num.split(/[\n,;]/).map(&:to_i)
 
     if input_values.any?(&:negative?)
-      raise Exception.new "#{ERROR_MSG}"
+      input_values.each do |val|
+        @@negative_numbers << val if val.negative?
+      end
+
+      raise Exception.new "#{ERROR_MSG} : #{@@negative_numbers}"
     end
 
     input_values

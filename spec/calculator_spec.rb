@@ -52,7 +52,7 @@ RSpec.describe Calculator do
     #   numbers = ["1\n,2,-3"]
     #   # expect(calculator.add(numbers)).to raise_exception
     #   # expect(calculator.add(numbers)).to raise_error(Exception::RuntimeError, "negative numbers not allowed")
-    #   expect(calculator.add(numbers)).to raise_exception('negative numbers not allowed')
+    #   expect(calculator.add(numbers)).to raise_exception('negative numbers not allowed : [-3]')
     # end
 
     it 'returns the sum of any amount of numbers' do
