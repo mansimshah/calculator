@@ -40,6 +40,23 @@ RSpec.describe Calculator do
       expect(calculator.add(numbers)).to eq([3])
     end
 
+    it 'returns the sum of mutiple numbers with new line chars' do
+      numbers = ["1\n,2", "9,0,1"]
+      expect(calculator.add(numbers)).to eq([3, 10])
+    end
+
+    # it 'returns the sum of two numbers with negative numbers' do
+    #   numbers = ["1\n,2,-3"]
+    #   # expect(calculator.add(numbers)).to raise_exception
+    #   # expect(calculator.add(numbers)).to raise_error(Exception::RuntimeError, "negative numbers not allowed")
+    #   expect(calculator.add(numbers)).to raise_exception('negative numbers not allowed')
+    # end
+
+    it 'return the sum of any amount of numbers' do
+      numbers = ["", "1", "1,5", "2,3", "4\n,5", "", "7,8"]
+      expect(calculator.add(numbers)).to eq([nil, 1, 6, 5, 9, nil, 15])
+    end
+
   end
 
 end
