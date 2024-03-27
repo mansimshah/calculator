@@ -55,9 +55,19 @@ RSpec.describe Calculator do
     #   expect(calculator.add(numbers)).to raise_exception('negative numbers not allowed')
     # end
 
-    it 'return the sum of any amount of numbers' do
+    it 'returns the sum of any amount of numbers' do
       numbers = ["", "1", "1,5", "2,3", "4\n,5", "", "7,8"]
       expect(calculator.add(numbers)).to eq([nil, 1, 6, 5, 9, nil, 15])
+    end
+
+    it 'returns the sum of numbers with delimiter' do
+      n1 = ["//;\n1;2"]
+      expect(calculator.add(n1)).to eq([3])
+    end
+
+    it 'returns 0 for non numeric numbers' do
+      n2 = ["abc", "def", "1\n,3"]
+      expect(calculator.add(n2)).to eq([0, 0, 4])
     end
 
   end

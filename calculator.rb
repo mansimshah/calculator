@@ -13,7 +13,7 @@ class Calculator
   end
 
   def validate_input num
-    input_values = num.split(/[\n,]/).map(&:to_i)
+    input_values = num.split(/[\n,;]/).map(&:to_i)
 
     if input_values.any?(&:negative?)
       raise Exception.new "#{ERROR_MSG}"
