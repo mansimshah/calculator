@@ -43,6 +43,9 @@ RSpec.describe Calculator do
     it 'returns the sum of mutiple numbers with new line chars' do
       numbers = ["1\n,2", "9,0,1"]
       expect(calculator.add(numbers)).to eq([3, 10])
+
+      n = ["1\n2,3"]
+      expect(calculator.add(n)).to eq([6])
     end
 
     # it 'returns the sum of two numbers with negative numbers' do
